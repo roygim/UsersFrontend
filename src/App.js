@@ -14,6 +14,7 @@ import LayoutPage from './components/pages/layout.page';
 import RegisterPage from './components/pages/register.page';
 import LoginPage from './components/pages/login.page';
 import NotFoundPage from './components/pages/not-found.page';
+import UserPage from './components/pages/user.page';
 
 function App() {
   const cacheRtl = createCache({
@@ -30,6 +31,7 @@ function App() {
               <Route index element={<MainPage />} />
               <Route path="register" element={<RegisterPage />} />
               <Route path="login" element={<LoginPage />} />
+              <Route path="user" element={<UserPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
