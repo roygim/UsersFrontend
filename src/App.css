@@ -1,5 +1,28 @@
+:root {
+  --pink: #ba6dad;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+body {
+  background: var(--pink);
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .App {
-  text-align: center;
+  width: 1240px;
+  margin: auto;
+  text-align: right;
+  padding-top: 8px;
+
+  @media (max-width: 1240px) {
+    width: 100%;
+  }
 }
 
 .App-logo {
