@@ -36,7 +36,7 @@ function UserRegister() {
                 password: values.password
             }
             const res = await us_registerUser(user)
-            console.log(res)
+
             if (res.code === 0) {
                 alert('יוזר נרשם בהצלחה')
                 navigate('/')
