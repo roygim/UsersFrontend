@@ -6,10 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, IconButton, Link } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import { HeaderCellWrap, TableRowWrap } from './users-table.css';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { getAllUsers as us_getAllUsers, deleteUser as us_deleteUser } from "../../services/users.service";
+import { getAllUsers as us_getAllUsers } from "../../services/users.service";
 import { useNavigate } from 'react-router-dom';
 
 function UsersTable() {
@@ -33,15 +32,6 @@ function UsersTable() {
         }
     }
 
-    const deleteUser = async (id) => {
-        try {
-            // alert(id)
-            await us_deleteUser()
-        } catch (error) {
-            alert('אירעה שגיאה')
-        }
-    }
-
     return (
         <Box className="UsersTable">
             <TableContainer component={Paper} sx={{ maxHeight: 540 }}>
@@ -52,7 +42,6 @@ function UsersTable() {
                             <HeaderCellWrap>שם פרטי</HeaderCellWrap>
                             <HeaderCellWrap>שם משפחה</HeaderCellWrap>
                             <HeaderCellWrap>מייל</HeaderCellWrap>
-                            {/* <HeaderCellWrap></HeaderCellWrap> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -75,14 +64,6 @@ function UsersTable() {
                                 <TableCell>{row.firstname}</TableCell>
                                 <TableCell>{row.lastname}</TableCell>
                                 <TableCell>{row.email}</TableCell>
-                                {/* <TableCell sx={{ width: "50px" }}>
-                                    <IconButton
-                                        aria-label="delete"
-                                        onClick={() => deleteUser(row.id)}
-                                    >
-                                        <DeleteIcon />
-                                    </IconButton>
-                                </TableCell> */}
                             </TableRowWrap>
                         ))}
                     </TableBody>
