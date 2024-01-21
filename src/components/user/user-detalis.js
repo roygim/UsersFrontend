@@ -3,9 +3,12 @@ import { Box, Button, Card, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteUser as us_deleteUser, logoutUser as us_logoutUser } from "../../services/users.service";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout as sliceLogout } from "../../state/slices/userSlice";
 
 function UserDetails({ currentUser }) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     if (!currentUser)
         return
@@ -16,6 +19,7 @@ function UserDetails({ currentUser }) {
             console.log(res)
             if (res.code === 0) {
                 alert('יוזר התנתק בהצלחה')
+                dispatch(sliceLogout())
                 navigate('/')
             }
         } catch (error) {
