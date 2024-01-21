@@ -31,7 +31,7 @@ function UserLogin({ currentEmail }) {
             const res = await us_loginUser(email, password)
             if (res.code === 0) {
                 dispatch(sliceLogin(res.data.user))
-                navigate(`/user`)
+                navigate('/user')
             }
         } catch (error) {
             console.log(error)
