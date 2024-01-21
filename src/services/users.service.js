@@ -41,6 +41,19 @@ export const registerUser = async (user) => {
     }
 }
 
+export const logoutUser = async () => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/logout`
+
+        const response = await axios.delete(url, { withCredentials: true });
+
+        return response.data;
+    } catch (error) {
+        console.log('error - logoutUser')
+        throw error
+    }
+}
+
 export const deleteUser = async () => {
     try {
         const url = `${process.env.REACT_APP_API_URL}/users/delete`

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Card, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteUser as us_deleteUser } from "../../services/users.service";
+import { deleteUser as us_deleteUser, logoutUser as us_logoutUser } from "../../services/users.service";
 import { useNavigate } from 'react-router-dom';
 
 function UserDetails({ currentUser }) {
@@ -10,12 +10,25 @@ function UserDetails({ currentUser }) {
     if (!currentUser)
         return
 
+    const logoutUser = async () => {
+        try {
+            const res = await us_logoutUser()
+            console.log(res)
+            if (res.code === 0) {
+                alert('יוזר התנתק בהצלחה')
+                navigate('/')
+            }
+        } catch (error) {
+            alert('אירעה שגיאה')
+        }
+    }
+
     const deleteUser = async () => {
         try {
             const res = await us_deleteUser()
-            if(res.code === 0) {
+            if (res.code === 0) {
                 alert('יוזר נמחק בהצלחה')
-                navigate('/') 
+                navigate('/')
             }
         } catch (error) {
             alert('אירעה שגיאה')
@@ -41,12 +54,11 @@ function UserDetails({ currentUser }) {
                     <Button>
                         עדכן
                     </Button>
-                    <Button>
+                    <Button
+                        onClick={() => logoutUser()}
+                    >
                         התנתק
                     </Button>
-                    {/* <Button>
-                        מחק
-                    </Button> */}
                     <IconButton
                         aria-label="delete"
                         onClick={() => deleteUser()}
