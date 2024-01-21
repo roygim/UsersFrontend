@@ -69,7 +69,6 @@ export const deleteUser = async () => {
 
 export const loadUser = async () => {
     try {
-        console.log('loadUser')
         const url = `${process.env.REACT_APP_API_URL}/loaduser`
 
         const response = await axios.post(url, null, { withCredentials: true });

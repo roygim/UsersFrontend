@@ -10,7 +10,7 @@ function UserPage() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('useEffect')
+    // console.log('useEffect')
     if (!currentUser) {
       loadUser()
     }
