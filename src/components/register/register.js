@@ -38,7 +38,6 @@ function UserRegister() {
             if (res.code === 0) {
             }
         } catch (error) {
-            console.log(error)
             if(error && error.response && error.response.data) {
                 alert(error.response.data)
             }
