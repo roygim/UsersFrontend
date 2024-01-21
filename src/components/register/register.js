@@ -4,8 +4,10 @@ import { TextFieldWrap } from './register.css';
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { registerUser as us_registerUser } from "../../services/users.service";
+import { useNavigate } from 'react-router-dom';
 
 function UserRegister() {
+    const navigate = useNavigate();
 
     const initialValue = {
         firstname: "",
@@ -36,6 +38,8 @@ function UserRegister() {
             const res = await us_registerUser(user)
             console.log(res)
             if (res.code === 0) {
+                alert('יוזר נרשם בהצלחה')
+                navigate('/')
             }
         } catch (error) {
             if(error && error.response && error.response.data) {

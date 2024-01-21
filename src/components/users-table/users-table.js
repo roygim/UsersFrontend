@@ -10,7 +10,7 @@ import { Box, IconButton, Link } from '@mui/material';
 import { HeaderCellWrap, TableRowWrap } from './users-table.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { getAllUsers as us_getAllUsers } from "../../services/users.service";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function UsersTable() {
     const [data, setData] = useState([])
