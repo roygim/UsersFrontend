@@ -16,7 +16,7 @@ function UserDetails({ currentUser }) {
     const logoutUser = async () => {
         try {
             const res = await us_logoutUser()
-            console.log(res)
+            
             if (res.code === 0) {
                 alert('יוזר התנתק בהצלחה')
                 dispatch(sliceLogout())
