@@ -18,7 +18,6 @@ function UserLogin({ currentEmail }) {
     });
 
     const submit = (values, props) => {
-        console.log(values)
         loginUser(values.email, values.password)
     }
 
@@ -27,7 +26,6 @@ function UserLogin({ currentEmail }) {
             const res = await us_loginUser(email, password)
             console.log(res)
             if (res.code == 0) {
-                alert('ok')
             }
         } catch (error) {
             console.log(error)

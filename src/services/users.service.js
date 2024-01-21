@@ -3,8 +3,7 @@ import axios from "axios";
 export const getAllUsers = async () => {
     try {
         const url = `${process.env.REACT_APP_API_URL}/users`
-        const response = await axios.get(url);
-        console.log(response)
+        const response = await axios.get(url, { withCredentials: true });
         return response.data;
     } catch (error) {
         console.log('error - getAllUsers')
@@ -20,8 +19,8 @@ export const loginUser = async (email, password) => {
             password: password
         }
 
-        const response = await axios.post(url, data);
-        console.log(response)
+        const response = await axios.post(url, data, { withCredentials: true });
+
         return response.data;
     } catch (error) {
         console.log('error - getAllUsers')
