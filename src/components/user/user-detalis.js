@@ -41,7 +41,6 @@ function UserDetails({ currentUser }) {
 
     return (
         <Box className="UserDetails">
-            UserDetails {currentUser.firstname}
             <Card
                 sx={{
                     width: "500px",
