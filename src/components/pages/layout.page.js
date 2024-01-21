@@ -4,11 +4,11 @@ const LayoutPage = () => {
     return (
         <>
             <nav>
-                <ul>
-                    <li>
+                <ul style={{ display: "flex", paddingRight: "12px" }}>
+                    <li style={{ marginLeft: "12px" }}>
                         <Link to="/">דף הבית</Link>
                     </li>
-                    <li>
+                    <li style={{ marginLeft: "12px" }}>
                         <Link to="/login">התחבר</Link>
                     </li>
                     <li>
