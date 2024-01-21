@@ -6,11 +6,16 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { he } from "date-fns/locale";
 
+import { Provider } from "react-redux";
+import { store } from "./state/store";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={he}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </LocalizationProvider>
   </React.StrictMode>
 );

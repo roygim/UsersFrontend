@@ -1,11 +1,14 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import UserDetails from '../user/user-detalis';
+import { useSelector } from 'react-redux';
 
 function UserPage() {
+  const currentUser = useSelector((state) => state.user.data.currentUser)
 
   return (
     <Box className="UserPage">
-      UserPage
+      <UserDetails currentUser={currentUser} />
     </Box>
   );
 }

@@ -13,8 +13,8 @@ import { getAllUsers as us_getAllUsers, deleteUser as us_deleteUser } from "../.
 import { useNavigate } from 'react-router-dom';
 
 function UsersTable() {
-    const [data, setData] = useState([])
     const navigate = useNavigate();
+    const [data, setData] = useState([])
 
     useEffect(() => {
         getAllUsers()

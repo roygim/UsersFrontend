@@ -4,8 +4,13 @@ import { TextFieldWrap } from './login.css';
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { loginUser as us_loginUser } from "../../services/users.service";
+import { login as sliceLogin } from "../../state/slices/userSlice";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function UserLogin({ currentEmail }) {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const initialValue = {
         email: currentEmail || "",
@@ -24,8 +29,9 @@ function UserLogin({ currentEmail }) {
     const loginUser = async (email, password) => {
         try {
             const res = await us_loginUser(email, password)
-            console.log(res)
             if (res.code === 0) {
+                dispatch(sliceLogin(res.data.user))
+                navigate(`/user`)
             }
         } catch (error) {
             console.log(error)
