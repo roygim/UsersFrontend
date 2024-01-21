@@ -24,7 +24,7 @@ function UserPage() {
         dispatch(sliceLogin(res.data))
       }
     } catch (error) {
-      console.log('error - loadUser')
+      // console.log('error - loadUser')
     }
   }
 
