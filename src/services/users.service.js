@@ -73,10 +73,9 @@ export const loadUser = async () => {
         const url = `${process.env.REACT_APP_API_URL}/loaduser`
 
         const response = await axios.post(url, null, { withCredentials: true });
-        
+
         return response.data;
     } catch (error) {
-        console.log('error - getAllUsers')
         throw error
     }
 }
