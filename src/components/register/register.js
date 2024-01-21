@@ -1,41 +1,46 @@
 import React from 'react';
 import { Box, Button, Card } from '@mui/material';
-import { TextFieldWrap } from './login.css';
+import { TextFieldWrap } from './register.css';
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { loginUser as us_loginUser } from "../../services/users.service";
+import { registerUser as us_registerUser } from "../../services/users.service";
 
-function UserLogin({ currentEmail }) {
+function UserRegister() {
 
     const initialValue = {
-        email: currentEmail || "",
+        firstname: "",
+        lastname: "",
+        email: "",
         password: "",
     }
 
     const formVaildation = Yup.object({
+        firstname: Yup.string().required("שדה חובה"),
+        lastname: Yup.string().required("שדה חובה"),
         email: Yup.string().email('מייל לא תקין').required("שדה חובה"),
         password: Yup.string().required("שדה חובה")
     });
 
     const submit = (values, props) => {
-        loginUser(values.email, values.password)
+        registerUser(values)
     }
 
-    const loginUser = async (email, password) => {
+    const registerUser = async (values) => {
         try {
-            const res = await us_loginUser(email, password)
+            const user = {
+                firstname: values.firstname,
+                lastname: values.lastname,
+                email: values.email,
+                password: values.password
+            }
+            const res = await us_registerUser(user)
             console.log(res)
             if (res.code === 0) {
             }
         } catch (error) {
             console.log(error)
             if(error && error.response && error.response.data) {
-                if(error.response.data === 'User not found') {
-                    alert('יוזר לא נמצא')
-                }
-                else if(error.response.data === 'Invalid password') {
-                    alert('סיסמה שגויה')
-                }
+                alert(error.response.data)
             }
         }
     }
@@ -58,6 +63,26 @@ function UserLogin({ currentEmail }) {
                             }}
                         >
                             <Form>
+                                <TextFieldWrap
+                                    label="שם פרטי"
+                                    name="firstname"
+                                    fullWidth
+                                    value={props.values.firstname}
+                                    onChange={props.handleChange}
+                                    onBlur={props.handleBlur}
+                                    helperText={<ErrorMessage name="firstname" />}
+                                    error={props.errors.firstname && props.touched.firstname}
+                                />
+                                <TextFieldWrap
+                                    label="שם משפחה"
+                                    name="lastname"
+                                    fullWidth
+                                    value={props.values.lastname}
+                                    onChange={props.handleChange}
+                                    onBlur={props.handleBlur}
+                                    helperText={<ErrorMessage name="lastname" />}
+                                    error={props.errors.lastname && props.touched.lastname}
+                                />
                                 <TextFieldWrap
                                     label="מייל"
                                     name="email"
@@ -83,7 +108,7 @@ function UserLogin({ currentEmail }) {
                                     }}
                                 />
                                 <Button type="submit">
-                                    התחבר
+                                    הירשם
                                 </Button>
                             </Form>
                         </Card>
@@ -94,4 +119,4 @@ function UserLogin({ currentEmail }) {
     );
 }
 
-export default UserLogin;
+export default UserRegister;

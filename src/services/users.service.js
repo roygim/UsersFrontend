@@ -27,3 +27,16 @@ export const loginUser = async (email, password) => {
         throw error
     }
 }
+
+export const registerUser = async (user) => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/register`
+
+        const response = await axios.post(url, user, { withCredentials: true });
+
+        return response.data;
+    } catch (error) {
+        console.log('error - getAllUsers')
+        throw error
+    }
+}
