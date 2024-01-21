@@ -13,6 +13,9 @@ const userSlice = createSlice({
         },
         logout(state) {
             state.data.currentUser = null
+        },
+        update(state, action) {
+            state.data.currentUser = action.payload
         }
     },
 });
@@ -20,6 +23,7 @@ const userSlice = createSlice({
 export const {
     login,
     logout,
+    update
 } = userSlice.actions;
 
 export default userSlice.reducer;

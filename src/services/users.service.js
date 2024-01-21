@@ -36,7 +36,7 @@ export const registerUser = async (user) => {
 
         return response.data;
     } catch (error) {
-        console.log('error - getAllUsers')
+        console.log('error - registerUser')
         throw error
     }
 }
@@ -75,6 +75,19 @@ export const loadUser = async () => {
 
         return response.data;
     } catch (error) {
+        throw error
+    }
+}
+
+export const updateUser = async (user) => {
+    try {
+        const url = `${process.env.REACT_APP_API_URL}/users/update`
+
+        const response = await axios.put(url, user, { withCredentials: true });
+
+        return response.data;
+    } catch (error) {
+        console.log('error - updateUser')
         throw error
     }
 }

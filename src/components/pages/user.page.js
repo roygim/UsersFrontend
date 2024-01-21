@@ -19,7 +19,6 @@ function UserPage() {
   const loadUser = async () => {
     try {
       const res = await us_loadUser()
-      
       if (res && res.code === 0) {
         dispatch(sliceLogin(res.data))
       }
