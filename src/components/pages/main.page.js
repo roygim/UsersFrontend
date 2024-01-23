@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import UsersTable from '../users-table/users-table';
+import UsersList from '../users/users-list/users-list';
 
 function MainPage() {
 
   return (
     <Box className="MainPage">
-      <UsersTable />
+      <UsersList />
     </Box>
   );
 }

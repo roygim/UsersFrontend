@@ -7,11 +7,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, Link } from '@mui/material';
-import { HeaderCellWrap, TableRowWrap } from './users-table.css';
-import { getAllUsers as us_getAllUsers } from "../../services/users.service";
+import { HeaderCellWrap, TableRowWrap } from './users-list.css';
+import { getAllUsers as us_getAllUsers } from "../../../services/users.service";
 import { useNavigate } from 'react-router-dom';
 
-function UsersTable() {
+function UsersList() {
     const navigate = useNavigate();
     const [data, setData] = useState([])
 
@@ -73,4 +73,4 @@ function UsersTable() {
     );
 }
 
-export default UsersTable;
+export default UsersList;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Button, Card, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteUser as us_deleteUser, logoutUser as us_logoutUser, updateUser as us_updateUser } from "../../services/users.service";
+import { deleteUser as us_deleteUser, logoutUser as us_logoutUser, updateUser as us_updateUser } from "../../../services/users.service";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logout as sliceLogout, update as sliceUpdate } from "../../state/slices/userSlice";
+import { logout as sliceLogout, update as sliceUpdate } from "../../../state/slices/userSlice";
 import { ErrorMessage, Formik, Form } from 'formik';
 import { TextFieldWrap } from './user-detalis.css';
 import * as Yup from "yup";

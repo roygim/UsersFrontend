@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Box } from '@mui/material';
-import UserDetails from '../user/user-detalis';
+import UserDetails from '../users/user-detalis/user-detalis';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadUser as us_loadUser } from "../../services/users.service";
 import { login as sliceLogin } from "../../state/slices/userSlice";
